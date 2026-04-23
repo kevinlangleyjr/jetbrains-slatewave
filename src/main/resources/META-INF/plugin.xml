@@ -1,0 +1,31 @@
+<idea-plugin>
+    <id>dev.kevinlangleyjr.slatewave</id>
+    <name>Slatewave</name>
+    <vendor email="kevin@kevinlangleyjr.dev" url="https://getslatewave.com">Kevin Langley Jr.</vendor>
+
+    <description><![CDATA[
+        <p>A dark JetBrains theme built around a slate foundation and a teal signature,
+        with sky, rose, purple, and amber accents pulled directly from the matching
+        <a href="https://getslatewave.com">Slatewave</a> palette.</p>
+
+        <p>Designed so the terminal prompt and editor chrome feel like one continuous
+        surface. Ships both the UI theme and a matching editor color scheme — tuned
+        for WebStorm, GoLand, and the rest of the IntelliJ-based IDE family.</p>
+
+        <p><em>Slate below, teal above.</em></p>
+    ]]></description>
+
+    <change-notes><![CDATA[
+        <h3>0.0.1</h3>
+        <ul>
+            <li>Initial release.</li>
+        </ul>
+    ]]></change-notes>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <themeProvider id="slatewave" path="/themes/slatewave.theme.json"/>
+        <bundledColorScheme path="/colorSchemes/Slatewave"/>
+    </extensions>
+</idea-plugin>
