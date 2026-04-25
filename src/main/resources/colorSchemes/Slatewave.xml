@@ -97,6 +97,7 @@
         <option name="TODO_DEFAULT_ATTRIBUTES">
             <value>
                 <option name="FOREGROUND" value="fbbf24"/>
+                <option name="BACKGROUND" value="3a2e15"/>
                 <option name="FONT_TYPE" value="3"/>
             </value>
         </option>
@@ -240,9 +241,16 @@
                 <option name="FONT_TYPE" value="2"/>
             </value>
         </option>
+        <!--
+          VSCode's Slatewave colors `const`-declared locals pink (#fb7185) via the
+          TextMate scope `variable.other.constant` and the semantic token
+          `variable.readonly`. JetBrains has no public "readonly local" key — it
+          uses one bucket for all locals — so we paint locals pink and let
+          REASSIGNED_LOCAL_VARIABLE keep let/var-style mutation cases white.
+        -->
         <option name="DEFAULT_LOCAL_VARIABLE">
             <value>
-                <option name="FOREGROUND" value="e2e8f0"/>
+                <option name="FOREGROUND" value="fb7185"/>
             </value>
         </option>
         <option name="DEFAULT_REASSIGNED_LOCAL_VARIABLE">
@@ -817,7 +825,7 @@
         </option>
         <option name="JS.LOCAL_VARIABLE">
             <value>
-                <option name="FOREGROUND" value="e2e8f0"/>
+                <option name="FOREGROUND" value="fb7185"/>
             </value>
         </option>
         <option name="JS.PARAMETER">

@@ -152,22 +152,20 @@ _(TBD — publish step)_
 ### From a `.zip` (local build)
 
 ```sh
-# Gradle needs to start under a JDK ≥ 17. Any JetBrains IDE bundles one —
-# GoLand's JBR works fine. Foojay auto-downloads the JDK 17 toolchain used
-# to compile against the IntelliJ Platform, so this is the only env var
-# you need to set.
-JAVA_HOME=/Applications/GoLand.app/Contents/jbr/Contents/Home ./gradlew buildPlugin
-# → build/distributions/slatewave-0.0.1.zip
+make build
+# → build/distributions/Slatewave-<version>.zip
 ```
 
 Then in any JetBrains IDE: **Settings → Plugins → ⚙︎ → Install Plugin from Disk…** → pick the `.zip`.
+
+`make` auto-detects a bundled JetBrains JBR for `JAVA_HOME` (Gradle needs JDK ≥ 17 to start; the system Java on macOS is often 8). Override by exporting `JAVA_HOME` before invoking `make`. Run `make` with no args for the full target list.
 
 ### From source, live
 
 For iteration on the theme itself:
 
 ```sh
-JAVA_HOME=/Applications/GoLand.app/Contents/jbr/Contents/Home ./gradlew runIde
+make run
 ```
 
 spins up a sandbox IDE with the plugin loaded; edits to `theme.json` / `Slatewave.xml` show up on next sandbox launch.
