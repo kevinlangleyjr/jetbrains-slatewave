@@ -145,7 +145,9 @@ Bright variants follow the same mapping, shifted one step up the scale.
 
 ### From the Marketplace
 
-_(TBD — publish step)_
+> _Pending JetBrains Marketplace approval — track the listing at [plugins.jetbrains.com/plugin/31459-slatewave](https://plugins.jetbrains.com/plugin/31459-slatewave). Until it's approved, install via [a local build](#from-a-zip-local-build)._
+
+Once published:
 
 1. **Settings → Plugins → Marketplace**
 2. Search "Slatewave"
@@ -182,12 +184,12 @@ One palette. Every tool.
 - **Terminals** — [Alacritty](https://github.com/kevinlangleyjr/alacritty-slatewave) · [Ghostty](https://github.com/kevinlangleyjr/ghostty-slatewave) · [iTerm2](https://github.com/kevinlangleyjr/iterm2-slatewave) · [WezTerm](https://github.com/kevinlangleyjr/wezterm-slatewave) · [Windows Terminal](https://github.com/kevinlangleyjr/windows-terminal-slatewave)
 - **Prompts** — [Oh My Posh](https://github.com/kevinlangleyjr/slatewave-omp) · [Starship](https://github.com/kevinlangleyjr/starship-slatewave)
 - **Multiplexer** — [tmux](https://github.com/kevinlangleyjr/tmux-slatewave)
-- **Notes** — [Obsidian](https://github.com/kevinlangleyjr/obsidian-slatewave) · [Logseq](https://github.com/kevinlangleyjr/logseq-slatewave)
+- **CLI** — [LSD](https://github.com/kevinlangleyjr/lsd-slatewave)
+- **Notes** — [Obsidian](https://github.com/kevinlangleyjr/obsidian-slatewave) · [Logseq](https://github.com/kevinlangleyjr/logseq-slatewave) · [MarkEdit](https://github.com/kevinlangleyjr/markedit-slatewave)
 - **Launchers** — [Alfred](https://github.com/kevinlangleyjr/alfred-slatewave) · [Raycast](https://github.com/kevinlangleyjr/raycast-slatewave)
 - **Chat** — [Slack](https://github.com/kevinlangleyjr/slack-slatewave)
 
 See [getslatewave.com](https://getslatewave.com) for the full family.
-
 ---
 
 ## Customize
