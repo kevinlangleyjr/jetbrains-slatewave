@@ -14,6 +14,8 @@ A dark [JetBrains](https://www.jetbrains.com) theme built around a slate foundat
 
 Works in every IntelliJ-based IDE — **GoLand**, **WebStorm**, IntelliJ IDEA, PyCharm, RubyMine, PhpStorm, CLion, RustRover, DataGrip, Rider, Android Studio.
 
+![Slatewave preview](docs/preview.png)
+
 </div>
 
 ---
