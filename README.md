@@ -133,7 +133,7 @@ The integrated terminal's ANSI palette is wired to the prompt's segment colors, 
 | black   | `#1e293b` | ![](https://placehold.co/14x14/1e293b/1e293b.png) |
 | red     | `#fb7185` | ![](https://placehold.co/14x14/fb7185/fb7185.png) |
 | green   | `#5eead4` | ![](https://placehold.co/14x14/5eead4/5eead4.png) |
-| yellow  | `#b45309` | ![](https://placehold.co/14x14/b45309/b45309.png) |
+| yellow  | `#f59e0b` | ![](https://placehold.co/14x14/f59e0b/f59e0b.png) |
 | blue    | `#38bdf8` | ![](https://placehold.co/14x14/38bdf8/38bdf8.png) |
 | magenta | `#B388FF` | ![](https://placehold.co/14x14/B388FF/B388FF.png) |
 | cyan    | `#0e7490` | ![](https://placehold.co/14x14/0e7490/0e7490.png) |
