@@ -1,0 +1,96 @@
+name: Release
+
+# Builds and publishes the plugin to the JetBrains Marketplace on tag.
+# Mirrors the tag-triggered shape used by obsidian-slatewave and
+# vscode-slatewave, including the version-matches-tag guard.
+#
+# workflow_dispatch takes a tag input so an already-pushed tag can be
+# published without re-tagging — the tags carrying the ANSI-yellow fix were
+# cut before this workflow existed and need a manual run to reach the
+# Marketplace.
+on:
+  push:
+    tags:
+      - '*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Existing tag to publish (e.g. 0.0.6)'
+        required: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # attach the plugin zip to the GitHub release
+    steps:
+      - name: Resolve tag
+        id: v
+        run: echo "tag=${{ github.event.inputs.tag || github.ref_name }}" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.v.outputs.tag }}
+
+      # sinceBuild=241 targets IDEA 2024.1, which runs on JDK 17 bytecode —
+      # matches the toolchain pinned in build.gradle.kts.
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      # The Marketplace keys releases off the version in the plugin
+      # descriptor, which comes from gradle.properties. If it disagrees with
+      # the tag, the listing shows a version whose source can't be located.
+      - name: Verify pluginVersion matches tag
+        run: |
+          tag="${{ steps.v.outputs.tag }}"
+          ver="$(awk -F' *= *' '/^pluginVersion/ {print $2; exit}' gradle.properties)"
+          if [ "$tag" != "$ver" ]; then
+            echo "::error::Tag '$tag' does not match gradle.properties pluginVersion '$ver'. Bump it and re-tag."
+            exit 1
+          fi
+
+      - name: Build plugin
+        run: ./gradlew buildPlugin --no-daemon
+
+      # Catches descriptor problems the Marketplace would reject on upload —
+      # cheaper to fail here than to have a rejected submission sitting in the
+      # review queue.
+      #
+      # Deliberately not `verifyPlugin`: the IntelliJ Plugin Verifier needs an
+      # `ides {}` block naming the IDE builds to check against, which this
+      # project doesn't configure (and for a theme-only plugin with no
+      # platform API surface, binary-compatibility checking earns little).
+      # This task validates the descriptor and project config with no IDE
+      # download at all.
+      - name: Verify plugin configuration
+        run: ./gradlew verifyPluginProjectConfiguration --no-daemon
+
+      - name: Publish to JetBrains Marketplace
+        env:
+          PUBLISH_TOKEN: ${{ secrets.JETBRAINS_PUBLISH_TOKEN }}
+        run: |
+          if [ -z "${PUBLISH_TOKEN}" ]; then
+            echo "::error::JETBRAINS_PUBLISH_TOKEN is not set — generate one at https://plugins.jetbrains.com/author/me/tokens and add it to this repo's secrets."
+            exit 1
+          fi
+          ./gradlew publishPlugin --no-daemon
+
+      - name: Attach plugin zip to the GitHub release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          tag="${{ steps.v.outputs.tag }}"
+          zip="$(find build/distributions -name '*.zip' -print -quit)"
+          if [ -z "$zip" ]; then
+            echo "::error::No plugin zip found under build/distributions."
+            exit 1
+          fi
+          if gh release view "$tag" >/dev/null 2>&1; then
+            gh release upload "$tag" "$zip" --clobber
+          else
+            gh release create "$tag" --title "$tag" --generate-notes "$zip"
+          fi
