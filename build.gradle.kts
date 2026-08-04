@@ -49,4 +49,16 @@ intellijPlatform {
             untilBuild = provider { null }
         }
     }
+
+    // Marketplace credentials for the `publishPlugin` task, read from the
+    // environment so the token never lands in a tracked file. CI supplies it
+    // from the JETBRAINS_PUBLISH_TOKEN secret; locally, export PUBLISH_TOKEN
+    // before `./gradlew publishPlugin` if you need to ship by hand.
+    //
+    // `providers.environmentVariable` rather than `System.getenv` on purpose:
+    // gradle.properties turns on the configuration cache, and a raw getenv
+    // read at configuration time isn't cache-safe.
+    publishing {
+        token = providers.environmentVariable("PUBLISH_TOKEN")
+    }
 }
