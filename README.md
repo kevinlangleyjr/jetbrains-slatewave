@@ -77,7 +77,8 @@ Each accent maps to a specific role — editor and terminal speak the same visua
 | ![#B388FF](https://placehold.co/20x20/B388FF/B388FF.png) | `#B388FF` | git ahead/behind    | storage, `this`/`self`, decorators-adjacent         |
 | ![#fb7185](https://placehold.co/20x20/fb7185/fb7185.png) | `#fb7185` | git dirty           | numbers, constants, modified files, errors          |
 | ![#fbbf24](https://placehold.co/20x20/fbbf24/fbbf24.png) | `#fbbf24` | —                   | annotations, Go struct tags, escape chars, warnings |
-| ![#b45309](https://placehold.co/20x20/b45309/b45309.png) | `#b45309` | battery discharging | yellow terminal, deprecated markers                 |
+| ![#f59e0b](https://placehold.co/20x20/f59e0b/f59e0b.png) | `#f59e0b` | —                   | yellow terminal                                     |
+| ![#b45309](https://placehold.co/20x20/b45309/b45309.png) | `#b45309` | battery discharging | deprecated markers                                  |
 | ![#0e7490](https://placehold.co/20x20/0e7490/0e7490.png) | `#0e7490` | battery charging    | cyan terminal                                       |
 | ![#ff4500](https://placehold.co/20x20/ff4500/ff4500.png) | `#ff4500` | git diverged        | merge conflicts                                     |
 | ![#ef5350](https://placehold.co/20x20/ef5350/ef5350.png) | `#ef5350` | exit code != 0      | deleted files, invalid syntax                       |
@@ -128,16 +129,16 @@ Each accent maps to a specific role — editor and terminal speak the same visua
 
 The integrated terminal's ANSI palette is wired to the prompt's segment colors, so the companion oh-my-posh theme renders identically in the IDE terminal and any outside terminal.
 
-| ANSI    | Hex       |                                                   |
-| ------- | --------- | ------------------------------------------------- |
-| black   | `#1e293b` | ![](https://placehold.co/14x14/1e293b/1e293b.png) |
-| red     | `#fb7185` | ![](https://placehold.co/14x14/fb7185/fb7185.png) |
-| green   | `#5eead4` | ![](https://placehold.co/14x14/5eead4/5eead4.png) |
-| yellow  | `#f59e0b` | ![](https://placehold.co/14x14/f59e0b/f59e0b.png) |
-| blue    | `#38bdf8` | ![](https://placehold.co/14x14/38bdf8/38bdf8.png) |
-| magenta | `#B388FF` | ![](https://placehold.co/14x14/B388FF/B388FF.png) |
-| cyan    | `#0e7490` | ![](https://placehold.co/14x14/0e7490/0e7490.png) |
-| white   | `#e2e8f0` | ![](https://placehold.co/14x14/e2e8f0/e2e8f0.png) |
+| ANSI    | Hex       |                                                          |
+| ------- | --------- | -------------------------------------------------------- |
+| black   | `#1e293b` | ![#1e293b](https://placehold.co/14x14/1e293b/1e293b.png) |
+| red     | `#fb7185` | ![#fb7185](https://placehold.co/14x14/fb7185/fb7185.png) |
+| green   | `#5eead4` | ![#5eead4](https://placehold.co/14x14/5eead4/5eead4.png) |
+| yellow  | `#f59e0b` | ![#f59e0b](https://placehold.co/14x14/f59e0b/f59e0b.png) |
+| blue    | `#38bdf8` | ![#38bdf8](https://placehold.co/14x14/38bdf8/38bdf8.png) |
+| magenta | `#B388FF` | ![#B388FF](https://placehold.co/14x14/B388FF/B388FF.png) |
+| cyan    | `#0e7490` | ![#0e7490](https://placehold.co/14x14/0e7490/0e7490.png) |
+| white   | `#e2e8f0` | ![#e2e8f0](https://placehold.co/14x14/e2e8f0/e2e8f0.png) |
 
 Bright variants follow the same mapping, shifted one step up the scale.
 
