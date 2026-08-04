@@ -547,7 +547,7 @@
         </option>
         <option name="CONSOLE_YELLOW_OUTPUT">
             <value>
-                <option name="FOREGROUND" value="b45309"/>
+                <option name="FOREGROUND" value="f59e0b"/>
             </value>
         </option>
         <option name="CONSOLE_BLUE_OUTPUT">
@@ -594,7 +594,7 @@
         </option>
         <option name="TERMINAL_YELLOW">
             <value>
-                <option name="FOREGROUND" value="b45309"/>
+                <option name="FOREGROUND" value="f59e0b"/>
             </value>
         </option>
         <option name="TERMINAL_BLUE">
@@ -634,7 +634,7 @@
         </option>
         <option name="TERMINAL_BRIGHT_YELLOW">
             <value>
-                <option name="FOREGROUND" value="fbbf24"/>
+                <option name="FOREGROUND" value="fcd34d"/>
             </value>
         </option>
         <option name="TERMINAL_BRIGHT_BLUE">
